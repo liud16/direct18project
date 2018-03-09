@@ -69,15 +69,15 @@ def order_disorder_separation(image, percentile, size):
     # Calculating order disorder ratio, percent coverage of ordered, disordered and overall
     Order_Disorder_ratio = np.sum(np.sum(I_ordered)) / np.sum(np.sum(I_disordered))
     
-    Percent_ordered =100* (np.sum(np.sum(I_ordered)) / (image.shape[0] * image.shape[1]))
+    Percent_ordered =100 * (np.sum(np.sum(I_ordered)) / (image.shape[0] * image.shape[1]))
     
     Percent_diordered =100 * (np.sum(np.sum(I_disordered)) / (image.shape[0] * image.shape[1]))
     
     Percent_coverage = Percent_ordered + Percent_diordered
     
-    print 'Order-Disorder ratio = %.5f' %(Order_Disorder_ratio)
-    print 'Order Percentage = %.5f' %(Percent_ordered)
-    print 'Disorder Percentage = %.5f' %(Percent_diordered)
-    print 'Coverage Percentage = %.5f' %(Percent_coverage)
+    print ('Order-Disorder ratio = %.5f' %(Order_Disorder_ratio))
+    print ('Order Percentage = %.5f' %(Percent_ordered))
+    print ('Disorder Percentage = %.5f' %(Percent_diordered))
+    print ('Coverage Percentage = %.5f' %(Percent_coverage))
     
     return filt_img, I_ordered, I_disordered
