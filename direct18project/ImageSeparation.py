@@ -12,12 +12,16 @@ from scipy import ndimage
 
 def order_disorder_separation(image, percentile, size):
     
-    """Seperates the input image into order and disorder regions using percentile_filter from scipy.ndimage.
-    This function will also provide parameters such as order-diorder ratio, order percentage, disorder percentage 
+    """Seperates the input image into order and disorder regions 
+    using percentile_filter from scipy.ndimage.
+    This function will also provide parameters 
+    such as order-diorder ratio, order percentage, disorder percentage 
     and total percent coverage from the separated images.
     
-    Input image must already be segmented from the background. Output of this function will be filtered image,
-    original image, image with ordered regions and image with disoredered regions."""
+    Input image must already be segmented from the background. 
+    Output of this function will be filtered image,
+    original image, image with ordered regions and 
+    image with disoredered regions."""
     
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
@@ -33,7 +37,7 @@ def order_disorder_separation(image, percentile, size):
     # Using percentile filter to filter image into two labels - 0 and 1 
     filt_img = ndimage.percentile_filter(image, percentile, size, mode='reflect')
     
-    plt.figure(dpi = 300)
+    plt.figure()
     plt.imshow(filt_img)
     plt.colorbar()
     plt.title('Filtered image', fontsize = 25)
@@ -51,33 +55,57 @@ def order_disorder_separation(image, percentile, size):
     
     # Plotting Original, Ordered and Disordered Image
     
-    plt.figure(dpi = 300)
+    plt.figure()
     plt.imshow(image)
     plt.title('Original segmented image', fontsize = 25)
     
-    plt.figure(dpi = 300)
+    plt.figure()
     plt.imshow(I_ordered)
     plt.colorbar()
     plt.title('Ordered region', fontsize = 25)
     
-    plt.figure(dpi = 300)
+    plt.figure()
     plt.imshow(I_disordered)
     plt.colorbar()
     plt.title('Diordered region', fontsize = 25)
     plt.tight_layout()
     
     # Calculating order disorder ratio, percent coverage of ordered, disordered and overall
-    Order_Disorder_ratio = np.sum(np.sum(I_ordered)) / np.sum(np.sum(I_disordered))
+    order_disorder_ratio = np.sum(np.sum(I_ordered)) / np.sum(np.sum(I_disordered))
     
-    Percent_ordered =100 * (np.sum(np.sum(I_ordered)) / (image.shape[0] * image.shape[1]))
+    percent_ordered =100 * (np.sum(np.sum(I_ordered)) / (image.shape[0] * image.shape[1]))
     
-    Percent_diordered =100 * (np.sum(np.sum(I_disordered)) / (image.shape[0] * image.shape[1]))
+    percent_disordered =100 * (np.sum(np.sum(I_disordered)) / (image.shape[0] * image.shape[1]))
     
-    Percent_coverage = Percent_ordered + Percent_diordered
+    percent_coverage = percent_ordered + percent_disordered
+
+    print ('--- Disorderness of Image ---')    
+    print ('Order-Disorder ratio = %.5f' %(order_disorder_ratio))
+    print ('Order Percentage = %.5f' %(percent_ordered))
+    print ('Disorder Percentage = %.5f' %(percent_disordered))
+    print ('Coverage Percentage = %.5f' %(percent_coverage))
     
-    print ('Order-Disorder ratio = %.5f' %(Order_Disorder_ratio))
-    print ('Order Percentage = %.5f' %(Percent_ordered))
-    print ('Disorder Percentage = %.5f' %(Percent_diordered))
-    print ('Coverage Percentage = %.5f' %(Percent_coverage))
+    return filt_img, I_ordered, I_disordered, order_disorder_ratio, percent_ordered, percent_disordered, percent_coverage 
+
+
+def sep(segmented_image):
+    """Perform and optimize segmentation of the image"""
     
-    return filt_img, I_ordered, I_disordered
+    sep_ok = 'N'
+    while sep_ok == 'N':
+        print ('Please enter the parameters for image separation')
+        default_parameter = input('Default parameters? Y/N')    
+            
+        if default_parameter == 'Y':            
+            percentile = 30
+            size = 10
+    
+        else:
+            percentile = input('Percentile (0 to 100): ')
+            size = input('size (integer): ')
+        
+        image_separation = order_disorder_separation(segmented_image, percentile, size)
+        
+        sep_ok = input('Are you okay with the separation?')
+    
+    return image_separation
