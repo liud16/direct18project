@@ -25,6 +25,8 @@ def order_disorder_separation(image, percentile, size):
     # Checking the right data type for the percentile
     assert type(percentile) == int, ('Wrong data type', 'percentile must be an integer')
     
+    assert 0 <= percentile <= 100, ('Out of range', 'Percentile value must be between 0 and 100')    
+
     # Checking the right data type for the size
     assert type(size) == int, ('Wrong data type', 'size must be an integer')
     
