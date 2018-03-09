@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 from skimage import morphology
 import cv2
 
+
 def bckgrnd_correc_rect(image, row_len, col_len):
     
     """Background correction using a rectangular structuring element. This function uses white_tophat from 
