@@ -8,8 +8,8 @@ Created on Wed Mar 07 12:20:10 2018
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import segmentation
-from sklearn import cluster
 from ImagePreprocessing import convert_to_grayscale
+
 
 def seg_random_walker(image, marker_threshold):
     
