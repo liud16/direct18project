@@ -19,10 +19,10 @@ def bckgrnd_correc_rect(image, row_len, col_len):
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
     
     # Checking the right data type for the row length of the rectangular structuring element
-    assert type(row_len) == float, ('Wrong data type', 'row length must be a float')
+    assert type(row_len) == int, ('Wrong data type', 'row length must be a float')
     
     # Checking the right data type for the column length of the rectangular structuring element
-    assert type(col_len) == float, ('Wrong data type', 'column length must be a float')
+    assert type(col_len) == int, ('Wrong data type', 'column length must be a float')
     
     # background corrrection 
     image_bckgrnd_corrected = morphology.white_tophat(image, morphology.rectangle(row_len,col_len))
@@ -43,7 +43,7 @@ def bckgrnd_correc_sq(image, length):
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
     
     # Checking the right data type for the length of the square structuring element
-    assert type(length) == float, ('Wrong data type', 'length of the square structuring element must be a float')
+    assert type(length) == int, ('Wrong data type', 'length of the square structuring element must be a float')
     
     # background correction
     image_bckgrnd_corrected = morphology.white_tophat(image, morphology.square(length))
@@ -64,7 +64,7 @@ def bckgrnd_correc_disk(image, radius):
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
     
     # Checking the right data type for the length of the square structuring element
-    assert type(radius) == float, ('Wrong data type', 'radius of the disk structuring element must be a float')
+    assert type(radius) == int, ('Wrong data type', 'radius of the disk structuring element must be a float')
     
     # background correction
     image_bckgrnd_corrected = morphology.white_tophat(image, morphology.disk(radius))
