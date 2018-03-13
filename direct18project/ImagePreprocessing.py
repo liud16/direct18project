@@ -127,56 +127,95 @@ def convert_to_grayscale(image):
 
 def bckgrnd_corr(image):
     """Perform and optimize background correction"""
+
+    #Optimize background removal results based on user interaction
+    #After each run of the function, the user will be asked
+    #if background removal results look okay. The function will run 
+    #until user is okay with the result.
     
     bkgnd_ok = 'N'
     while bkgnd_ok == 'N':
-        print ('Please choose filter')
+        
+        #user chooses the filter shape
+        print ('Please choose filter: Rectangle, Square or Disk.')
         filter_shape = input('Filter: ')
 
         #perform background correction using a rectangle filter         
         if filter_shape == 'Rectangle':
-            print ('What are the dimensions of the filter?')
-            default_dim = input('Default dimensions? Y/N')
             
+            #ask user the dimension of the filter
+            #if the user chooses to not to use the default dimension,
+            #the program will ask user to enter dimensions
+            print ('What are the dimensions of the filter?')
+            default_dim = input('Default dimensions? Y/N ')
+            
+    
             if default_dim == 'Y':           
                 row_len = 10
                 col_len = 200
+                image_bckgrnd_corrected = bckgrnd_correc_rect(image, row_len, col_len)
+                bkgnd_ok = input('Are you okay with background removal?')
+
+            elif default_dim == 'N':
+                row_len = int(input('Row length (in pixel): '))
+                col_len = int(input('Column length (in pixel): '))
                 
-            else:
-                row_len = input('Row length (in pixel): ')
-                col_len = input('Column length (in pixel): ')
+                image_bckgrnd_corrected = bckgrnd_correc_rect(image, row_len, col_len)
+                bkgnd_ok = input('Are you okay with background removal?')
             
-            image_bckgrnd_corrected = bckgrnd_correc_rect(image, row_len, col_len)
-        
-        
+            #if the user did not enter Y or N,
+            #a message will show up, and the user will be
+            #asked to choose filter shape and dimensions again
+            else:
+                print ('Please enter Y or N only for "Default dimension?".')
+                bkgnd_ok = 'N'
+
+                    
         #perform background correction using a square filter         
         elif filter_shape == 'Square':
             print ('What are the dimensions of the filter?')
-            default_dim = input('Default dimensions? Y/N')
-            
+            default_dim = input('Default dimensions? Y/N ')
+
             if default_dim == 'Y':            
                 length = 10
-    
+                image_bckgrnd_corrected = bckgrnd_correc_sq(image, length)
+                bkgnd_ok = input('Are you okay with background removal?')
+                
+            elif default_dim == 'N':
+                length = int(input('Side length (in pixel): '))
+                image_bckgrnd_corrected = bckgrnd_correc_sq(image, length)
+                bkgnd_ok = input('Are you okay with background removal?')
+            
             else:
-                length = input('Side length (in pixel): ')
-        
-            image_bckgrnd_corrected = bckgrnd_correc_sq(image, length)
-
+                print ('Please enter Y or N only for "Default dimension?".')
+                bkgnd_ok = 'N'
+                
 
         #perform background correction using a disk filter         
         elif filter_shape == 'Disk':
             print ('What are the dimensions of the filter?')
-            default_dim = input('Default dimensions? Y/N')
+            default_dim = input('Default dimensions? Y/N ')
             
             if default_dim == 'Y':            
                 radius = 5
-    
+                image_bckgrnd_corrected = bckgrnd_correc_disk(image, radius)
+                bkgnd_ok = input('Are you okay with background removal?')
+
+            elif default_dim == 'N':
+                radius = int(input('Radius length (in pixel): '))
+                image_bckgrnd_corrected = bckgrnd_correc_disk(image, radius)
+                bkgnd_ok = input('Are you okay with background removal?')
+
             else:
-                radius = input('Radius length (in pixel): ')
+                print ('Please enter Y or N only for "Default dimension?".')
+                bkgnd_ok = 'N'
         
-            image_bckgrnd_corrected = bckgrnd_correc_disk(image, radius)
-            
-        bkgnd_ok = input('Are you okay with background removal?')
+        #if user did not enter the given choices,
+        #a message will show up. User will be asked to
+        #choose shape again.
+        else:
+            print ('Please choose from the listed shapes.')
+        
         
     return image_bckgrnd_corrected
         
