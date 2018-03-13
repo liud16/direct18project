@@ -81,21 +81,33 @@ def seg_random_walker(image, marker_threshold):
 
 def seg(bckgrnd_corr_image):
     """Perform and optimize segmentation of the image"""
-    
+
+    #Optimize segmentation results based on user interaction
+    #After each run of the segmentation function, the user will be asked
+    #if segmentation results look okay. The function will run 
+    #until user is okay with the segmentation.
     seg_ok = 'N'
     while seg_ok == 'N':
+        
+        #ask user the threshold level.
+        #if the user chooses to not to use the default setting,
+        #the program will ask user to enter threshold level.
         print ('Please choose a threshold for segmentation from 0.0 to 1.0')
-        default_threshold = input('Default dimensions? Y/N')    
+        default_threshold = input('Default dimensions? Y/N ')    
             
         if default_threshold == 'Y':            
             threshold = 0.15
-    
+            image_segmentation = seg_random_walker(bckgrnd_corr_image, threshold)
+            seg_ok = input('Are you okay with the segmentation? Y/N ')
+
+        elif default_threshold == 'N':
+            threshold = int(input('Threshold (0.0 to 1.0): '))
+            image_segmentation = seg_random_walker(bckgrnd_corr_image, threshold)
+            seg_ok = input('Are you okay with the segmentation? Y/N ')
+        
         else:
-            threshold = input('Threshold (0.0 to 1.0): ')
-        
-        image_segmentation = seg_random_walker(bckgrnd_corr_image, threshold)
-        
-        seg_ok = input('Are you okay with the segmentation?')
+            print ('Please enter Y or N only for "Default dimension?".')
+            seg_ok = 'N'
     
     return image_segmentation
 
