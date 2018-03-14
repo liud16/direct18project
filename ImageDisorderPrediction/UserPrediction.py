@@ -5,10 +5,8 @@ Created on Tue Mar 13 13:30:47 2018
 @author: sarth
 """
 
-import matplotlib.pyplot as plt 
 import pandas as pd 
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn import utils
 
@@ -17,7 +15,8 @@ pd.set_option('display.float_format', lambda x: '%.6f' % x)
 
 
 def knn_predict(k, concentration, pH):
-    """predict disorder by training a knn algorithm with
+    """
+    Predict disorder by training a knn algorithm with
     existing peptide data. Prediction is based on the set
     of pH and concentration the user provides. 
     
@@ -28,6 +27,10 @@ def knn_predict(k, concentration, pH):
     
     Return:
         Disorder
+    
+    Raises:
+        Error when the input is out of range
+        
     """
     
     assert 1 < k < 50, 'k must an integer within the given range'
