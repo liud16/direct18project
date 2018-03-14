@@ -8,11 +8,20 @@ Created on Sun Mar 11 15:12:49 2018
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import segmentation
-import cv2
+import cv2ImageSegmentation
 from ImageSegmentationFunc import seg_random_walker
 
 def seg(bckgrnd_corr_image):
-    """Perform and optimize segmentation of the image"""
+    """
+    Wrapper function to perform and optimize segmentation of the image
+    
+    Args:
+        bckgrnd_corr_image: image to be processed, numpy array
+    
+    Returns:
+        numpy array
+    
+    """
     
     seg_ok = 'N'
     while seg_ok == 'N':

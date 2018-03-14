@@ -9,7 +9,17 @@ from ImageSeparationFunc import order_disorder_separation
 
 
 def sep(segmented_image):
-    """Perform and optimize segmentation of the image"""
+    """
+    Wrapper function to perform and optimize segmentation of the image.
+    
+    Args:
+        segmented_image: image to be separated by disorder level,
+        numpy array
+        
+    Returns:
+        output from order_disorder_separation
+    
+    """
     
     #Optimize separation results based on user interaction
     #After each run of the separation function, the user will be asked

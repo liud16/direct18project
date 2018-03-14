@@ -13,6 +13,18 @@ import cv2
 
 
 def savefile(filename, file):
+    """ 
+    Save an array to a txt file
+    
+    Args:
+        filename: name of the txt file, a string
+        file: data to be saved, 1D or 2D array-like
+    
+    Returns:
+        txt file
+        
+    """
+
     output_file = np.savetxt(filename, file, fmt = '%.3f', delimiter = '\t')
     
     return output_file
@@ -20,11 +32,24 @@ def savefile(filename, file):
 
 
 def bckgrnd_correc_rect(image, row_len, col_len):
-    
-    """Background correction using a rectangular structuring element. 
+    """
+    Background correction using a rectangular structuring element. 
     This function uses white_tophat from 
     skimage.morphology to return image minus 
-    the morphological opening obtained from the structuring element."""
+    the morphological opening obtained from the structuring element.
+    
+    Args:
+        image: image to be processed, a numpy array
+        row_len: side-length of the rectangle filter, int
+        col_len: side-length of the rectangle filter, int
+    
+    Returns:
+        numpy array
+    
+    Raises:
+        Errors when input type is wrong
+    
+    """
     
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
@@ -51,11 +76,24 @@ def bckgrnd_correc_rect(image, row_len, col_len):
 
 
 def bckgrnd_correc_sq(image, length):
-    
-    """Background correction using a square structuring element. 
+    """
+    Background correction using a square structuring element. 
     This function uses white_tophat from 
     skimage.morphology to return image minus 
-    the morphological opening obtained from the structuring element."""
+    the morphological opening obtained from the structuring element.    
+    
+    Args:
+        image: image to be processed, a numpy array
+        length: side-length of the square filter, int
+
+    
+    Returns:
+        numpy array
+    
+    Raises:
+        Errors when input type is wrong
+    
+    """
     
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
@@ -79,12 +117,24 @@ def bckgrnd_correc_sq(image, length):
 
 
 def bckgrnd_correc_disk(image, radius):
-    
-    """Background correction using a disk structuring element. 
+    """
+    Background correction using a disk structuring element. 
     This function uses white_tophat from 
     skimage.morphology to return image minus 
-    the morphological opening obtained from the structuring element."""
+    the morphological opening obtained from the structuring element.    
     
+    Args:
+        image: image to be processed, a numpy array
+        radius: radius of the disk filter, int
+
+    
+    Returns:
+        numpy array
+    
+    Raises:
+        Errors when input type is wrong
+    
+    """
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
     
@@ -106,9 +156,20 @@ def bckgrnd_correc_disk(image, radius):
         
 
 def convert_to_grayscale(image):
+    """
+    Converting the image to grayscale - 
+    where minimum pixel value is 0.0 and maximum pixel value is 1.0
     
-    """Converting the image to grayscale - 
-    where minimum pixel value is 0.0 and maximum pixel value is 1.0"""
+    Args:
+        image: image to be processed, numpy array
+    
+    Returns:
+        numpy array
+    
+    Raises:
+        Errors when input type is wrong
+        
+    """
     
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')

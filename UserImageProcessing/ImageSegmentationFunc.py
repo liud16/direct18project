@@ -12,9 +12,20 @@ import cv2
 
 
 def convert_to_grayscale(image):
+    """
+    Converting the image to grayscale - 
+    where minimum pixel value is 0.0 and maximum pixel value is 1.0
     
-    """Converting the image to grayscale - 
-    where minimum pixel value is 0.0 and maximum pixel value is 1.0"""
+    Args:
+        image: image to be processed, numpy array
+    
+    Returns:
+        numpy array
+    
+    Raises:
+        Errors when input type is wrong
+        
+    """
     
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
@@ -30,9 +41,24 @@ def convert_to_grayscale(image):
 
 def seg_random_walker(image, marker_threshold):
     
-    """Image segmentation into two regions using skimage random walker segmentation algorithm.
-    Input image must be gray scale. This function will provide segmented image and marker positions
-    as the output."""
+    """
+    Segment image into two regions using skimage random walker 
+    segmentation algorithm. Input image must be gray-scale. 
+    This function will provide segmented image and marker positions
+    as the output.
+    
+    Args:
+        image: image to be processed, numpy array
+        marker_threshold: threshold for segmentation, float
+    
+    Returns:
+        numpy array
+    
+    Raises:
+        Errors when input type is wrong
+        Error when marker_threshold is out of the range of 0 and 1
+    
+    """
     
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong image data type', 'image must be a numpy array')
