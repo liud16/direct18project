@@ -1,19 +1,11 @@
 import numpy as np
 import pandas as pd
-import matplotlib
-matplotlib.use('agg')
 import matplotlib.pyplot as plt
-from skimage import morphology, color, segmentation, feature, filters, io
-from sklearn import cluster
-from scipy import ndimage
-import cv2
 
 from ImageSegmentationFunc import convert_to_grayscale
 from ImageSegmentationFunc import seg_random_walker
 from ImagePreprocessing import bckgrnd_correc_rect
 
-from unittest import mock
-from unittest import TestCase
 
 I1_test = np.loadtxt('tdj_grbp5_1um_1hr_3rd_020717.001.txt')
 gh = bckgrnd_correc_rect(I1_test,10,200)
@@ -34,7 +26,6 @@ def test_convert_to_grayscale():
  
     
     #check expected outputs
-    b = int(100)
     chg = convert_to_grayscale(I1_test)
     plt.close()
     assert type(chg) == np.ndarray, "Function output should be numpy ndarray. Please check function for expected error"
