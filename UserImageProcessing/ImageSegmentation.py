@@ -8,7 +8,7 @@ Created on Sun Mar 11 15:12:49 2018
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import segmentation
-import cv2ImageSegmentation
+import cv2
 from ImageSegmentationFunc import seg_random_walker
 
 def seg(bckgrnd_corr_image):
