@@ -12,16 +12,33 @@ from scipy import ndimage
 
 def order_disorder_separation(image, percentile, size):
     
-    """Seperates the input image into order and disorder regions 
+    """
+    Seperates the input image into order and disorder regions 
     using percentile_filter from scipy.ndimage.
     This function will also provide parameters 
     such as order-diorder ratio, order percentage, disorder percentage 
     and total percent coverage from the separated images.
     
-    Input image must already be segmented from the background. 
-    Output of this function will be filtered image,
-    original image, image with ordered regions and 
-    image with disoredered regions."""
+    Args:
+        image: segmented image, numpy array
+        percentile: float
+        size: size of the separation filter, int
+    
+    Returns:
+        filt_img: numpy array 
+        I_ordered: float 
+        I_disordered: float 
+        order_disorder_ratio: float  
+        percent_ordered: float  
+        percent_disordered: float  
+        percent_coverage: float 
+
+    Raises:
+        Errors when input datatype is wront
+        Error when percentile is out of range.
+    
+    """
+
     
     # Checking the right data type for the input image
     assert type(image) == np.ndarray, ('Wrong data type', 'image must be a numpy array')
