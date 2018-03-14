@@ -4,8 +4,6 @@ import matplotlib
 matplotlib.use('agg')
 import matplotlib.pyplot as plt
 from skimage import morphology, color, segmentation, feature, filters, io
-from sklearn import cluster
-from scipy import ndimage
 import cv2
 
 
@@ -33,8 +31,4 @@ class segTests(TestCase):
         py = type(resulty)
         self.assertEqual(py, np.ndarray)
     
-    @mock.patch('ImageSegmentation.input', create=True)
-    def test_seg_assert(self, mocked_input):    
-        with self.assertRaises(AssertionError):
-            mocked_input.side_effect = ['N', float(10), 'Y']
-            result_sepn = seg(gray_I1)
+ 
