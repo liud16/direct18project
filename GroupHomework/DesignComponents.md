@@ -39,4 +39,4 @@
 * Input - processing parameters (pH, Concentration)
 * labels assigned in terms of "Disorderedness" of the image based on output of previous section for the training and test sets.
 * clustering of Orderedness, Disorderedness, Order:Disorder ratio parameters from training sets, validated with test sets.
-* Prediction of Orderedness, Disorderedness and Order:Disorder ratio for input parameters, by regression of training and test cases.
+* Prediction of Orderedness, Disorderedness and Order:Disorder ratio for input parameters, by regression of training and test sets.
