@@ -69,6 +69,7 @@ def bckgrnd_correc_rect(image, row_len, col_len):
     plt.title('Background correction with rectangle')
     plt.imshow(image_bckgrnd_corrected)
     plt.colorbar()
+    plt.show()
     
     return image_bckgrnd_corrected
 
@@ -109,6 +110,7 @@ def bckgrnd_correc_sq(image, length):
     plt.title('Background correction with square')
     plt.imshow(image_bckgrnd_corrected)
     plt.colorbar()
+    plt.show()
     
     return image_bckgrnd_corrected
 
@@ -149,6 +151,7 @@ def bckgrnd_correc_disk(image, radius):
     plt.title('Background correction with disk')
     plt.imshow(image_bckgrnd_corrected)
     plt.colorbar()
+    plt.show()
     
     return image_bckgrnd_corrected
         
@@ -182,6 +185,7 @@ def convert_to_grayscale(image):
     plt.title('After background correction, grey-scale')
     plt.imshow(image_gray)
     plt.colorbar()
+    plt.show()
     
     return image_gray
 
