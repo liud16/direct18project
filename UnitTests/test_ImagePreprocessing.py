@@ -1,9 +1,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from skimage import morphology, color, segmentation, feature, filters, io
-from sklearn import cluster
-import cv2
 
 from ImagePreprocessing import bckgrnd_correc_rect
 from ImagePreprocessing import bckgrnd_correc_sq
@@ -12,6 +9,8 @@ from ImagePreprocessing import convert_to_grayscale
 from ImagePreprocessing import bckgrnd_corr
 from unittest import mock
 from unittest import TestCase
+
+import unittest
 
 I1_test = np.loadtxt('tdj_grbp5_1um_1hr_3rd_020717.001.txt')
 
@@ -116,7 +115,6 @@ def test_convert_to_grayscale():
  
     
     #check expected outputs
-    b = int(100)
     chg = convert_to_grayscale(I1_test)
     plt.close()
     assert type(chg) == np.ndarray, "Function output should be numpy ndarray. Please check function for expected error"

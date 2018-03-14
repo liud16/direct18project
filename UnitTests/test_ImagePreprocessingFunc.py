@@ -1,18 +1,11 @@
 import numpy as np
 import pandas as pd
-import matplotlib
-matplotlib.use('agg')
 import matplotlib.pyplot as plt
-from skimage import morphology, color, segmentation, feature, filters, io
-from sklearn import cluster
-import cv2
 
 from ImagePreprocessingFunc import bckgrnd_correc_rect
 from ImagePreprocessingFunc import bckgrnd_correc_sq
 from ImagePreprocessingFunc import bckgrnd_correc_disk
 from ImagePreprocessingFunc import convert_to_grayscale
-import sys
-from io import StringIO
 
 I1_test = np.loadtxt('tdj_grbp5_1um_1hr_3rd_020717.001.txt')
 
@@ -118,7 +111,6 @@ def test_convert_to_grayscale():
  
     
     #check expected outputs
-    b = int(100)
     chg = convert_to_grayscale(I1_test)
     assert type(chg) == np.ndarray, "Function output should be numpy ndarray. Please check function for expected error"
     
