@@ -22,7 +22,7 @@ Mac OS X and Windows are both able to download python 3 without any dependencies
 * *UserImageProcessing:*
   - This folder contains all the functions needed for preprocessing of the AFM image for the first use case in which the AFM image is available.
 
-  - To run the software, first git clone the whole repository into your computer.
+  - To run the software, either use `pip install SAFMI_AFM` or git clone the whole repository into your computer.
 
   - In a shell script, either terminal for MacOSX or any bash enabled command line GUI in windows, open the directory "UserImageProcessing" by running `cd /path/to/cloned/repository/UserImageProcessing`, type in and run: python UserImageProcessing.py
 
