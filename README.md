@@ -41,7 +41,9 @@ Mac OS X and Windows are both able to download python 3 without any dependencies
   - This interactive software will then provide you with instructions on how to enter pH (between 1 and 14) and concentration of peptide solution (between 0.1 to 2 micro-Molar (uM)).
     You will be able to manipulate iteratively the k value of a k-nearest neighbors algorithm to predict a degree of disorder "*highly disordered, completely disordered or completely ordered*" for the set of processing conditions that you enter. Errors if any in the user-inputs will be displayed and hints for troubleshooting provided.
 
-  - The knn_test.py splits a set of 55 processed AFM images to training and testing sets. Prediction results of the testing set are plotted. Errors are calculated by comparing the disorder level of the prediction and the test data. The file containing the data set is in the same directory, and named 'afm_datafile_v3.csv'.
+  - The knn_test.py splits a set of 55 processed AFM images to training and testing sets (75% training). Prediction results of the testing set are plotted. Errors are calculated by comparing the disorder level of the prediction and the test data. The file containing the data set is in the same directory, and named 'afm_datafile_v3.csv'.
+
+  - Prediction of the test data described above is *~73%*. Visualization of test-set prediction are saved in this directory: Order_Disorder_ratio.png and testingdata_vs_prediction.png.
 
 
 
