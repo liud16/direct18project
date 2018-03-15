@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Mar 14 19:58:29 2018
-@author: sarth, sid
+@author: sarth, demi, sid
 """
 import os
 from setuptools import setup, find_packages
