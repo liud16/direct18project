@@ -1,9 +1,11 @@
 # SAFMI-AFM: Segmentation of Atomic Force Microscope Images; Library functions and Predictive Analysis.
 
 **Download Software**
+
 In command line, type: pip install SAFMI_AFM
 
 **Software Description**
+
 SAFMI is a software for the identification of different textural components and their segmentation in AFM images of self assembled peptide structures. From a .txt file image data of the system from AFM, the software helps front-end users approximate the effect of natural tip drift which is ubiquitous in AFM characterization, cancel noise, detect different textures based on how ordered or disordered the self-assembly is and calculate the percent coverage of each texture, overall percent coverage of the self assembled peptides, and the ordered to disordered ratio as a means of characterizing the results in terms of degree of disorderedness. This will help evaluate the self assembly properties of the peptides on the substrates for the processing conditions.
 A second use case of SAFMI is to output the same data even without the availability of an AFM image, if the processing parameters such as pH and peptide-concentration are known. A k-Nearest Neighbors classification algorithm is used for a regression analysis of the image parameters (percent coverage, Ratio of Ordered to Disordered, degree of disorderedness) from 55 512x512 pixel size AFM images of such systems, 75% of which are used for training and 25% for validation. This technique predicts the estimated Ratio of Ordered to Disordered for an absent image if the processing conditions are known.
 
