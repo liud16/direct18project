@@ -1,9 +1,12 @@
 # Functional Design of AFM Image Segmentation Software
 
-1. Image preprocessing:
+1. Image preprocessing and Segmentation:
   - Background drift removal: using python packages Scikit-Image and OpenCV, we morphologically open the image based on user input structures to approximate and cancel out tip drift
-  - texture based segmentation based on a random walk method to separate regions of different textures (random walker in skimage).
-  - grayscale normalized version of the corrected image is output.
+  - Texture based segmentation based on a random walk method to separate regions of different textures (random 
+walker in skimage).
+  - Grayscale normalized version of the corrected image is output.
+  - Percentile filter from Scipy.ndimage module is used to separate the segmented images into ordered and 
+disordered regions.
 
 2. Quantitative analysis:
   - Find the number of unique regions based on textures
@@ -12,9 +15,10 @@
 
 3. Training:
   - We provide the training set for the user upon request:
-    - the training set contains 75% of fifty five pre-processed 512x512 pixelsize images
-    - each image is assigned a numeric label to indicate the level of disorder, and is associated with a set of two parameters (pH, concentration of solute-buffer solution)
-    - we only require the user to cite the required sources provided by us
+    - The training set contains 75% of fifty five pre-processed 512x512 pixelsize images
+    - Each image is assigned a numeric label to indicate the level of disorder, and is associated with a set of 
+two parameters (pH, concentration of solute-buffer solution)
+    - We only require the user to cite the required sources provided by us
   - User can also use self designed training sets
 
 4. Testing:
@@ -24,7 +28,7 @@
 
 5. Prediction of order to disorder ratio based on an input image:
   - The user inputs an AFM image in txt format (may or may not be preprocessed. <span style = "color:blue"> Please see use-cases for further details </span> )
-  - Using K-nearest neighbors or K-means algorithm, the percent surface coverage of each region, percent surface coverage overall and order to disorder ratio is output.
+  - Using K-nearest neighbors algorithm, the percent surface coverage of each region, percent surface coverage overall and order to disorder ratio is output.
 
 6. Prediction of disorder-ness based on a set of conditions:
   - The user inputs the conditions (pH, concentration. <span style = "color:blue"> For further details please see use-cases </span> )
