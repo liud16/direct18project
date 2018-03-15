@@ -60,7 +60,7 @@ def test_order_disorder_separation():
     # try percentile number larger than 100     
     per_fl_b = 120
     try:
-        order_disorder_separation(trial_t,40,per_fl_b)
+        order_disorder_separation(trial_t,per_fl_b,10)
     except Exception:
         pass
     else: 
