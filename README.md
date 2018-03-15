@@ -11,7 +11,7 @@ Python Packages: Scikit-Image, OpenCV, Scikit-Learn, Matplotlib, Numpy, Scipy an
 
 Mac OS X and Windows are both able to download python 3 without any dependencies. a `conda install "your library package"` code will need to be run on the terminal or git-Bash in order to install numpy, scipy, pandas, mATPLOTLIB, Scikit-Learn, Scikit-Image and openCV. Familiarity with conda, sudo and pip commands will be useful for properly downloading and installing these packages.
 
-**Folders:**
+**Directories:**
 
 * *UserImageProcessing:*
   - This folder contains all the functions needed for preprocessing of the AFM image for the first use case in which the AFM image is available.
@@ -30,6 +30,8 @@ Mac OS X and Windows are both able to download python 3 without any dependencies
 
   - If you choose `Separation`, the image will be background corrected, segmented and then separated into two different images based on a similar interactive iterative process where you can play around with the parameters of the separation function until you are satisfied. At the end you will be able to get a numerical estimate of the Order to Disorder ratio, percent surface coverage of each texture and overall percent coverage of the peptides. Errors if any in the user-inputs will be displayed and hints for troubleshooting provided.
 
+  - The directory sample_images contains raw peptide AFM images.
+
 * *ImageDisorderPrediction*
   - This folder contains all the functions needed for predicting the Ratio of order to disorder, or the degree of disorderedness of peptide self-assembly when a relevant AFM image is not available with the user, provided the user has information about the pH and concentration of peptide that they want to use.
   - To run the software, first git clone the whole repository into your computer.
@@ -39,13 +41,17 @@ Mac OS X and Windows are both able to download python 3 without any dependencies
   - This interactive software will then provide you with instructions on how to enter pH (between 1 and 14) and concentration of peptide solution (between 0.1 to 2 micro-Molar (uM)).
     You will be able to manipulate iteratively the k value of a k-nearest neighbors algorithm to predict a degree of disorder "*highly disordered, completely disordered or completely ordered*" for the set of processing conditions that you enter. Errors if any in the user-inputs will be displayed and hints for troubleshooting provided.
 
+  - The knn_test.py splits a set of 55 processed AFM images to training and testing sets. Prediction results of the testing set are plotted. Errors are calculated by comparing the disorder level of the prediction and the test data. The file containing the data set is in the same directory, and named 'afm_datafile_v3.csv'.
+
+
+
 
 #### All the functions used in the software use cases are available to play with in their respective folders.
 
 *For running tests:*
 In a shell script, open the directory "UnitTests", type in and run: nosetests -verbose Test.(the name of 'test.py' file desired to run) based on the use cases you want to access.
 
-#### All Documentation is in this README file, and Use cases as well as Software Workflow and License details can be found in their respective files.
+#### All Documentation is in this README file, and Use cases as well as Software Workflow and License details can be found in their respective files. Our coding thoughts can be found in RoughWork.ipynb.
 Acknowledgements:
 
 We appreciate feedback and suggestions on the structure and coding of this software from Professor David Beck and TA's Arushi Prakash, Nicholas Montoni and Moke Mao, as well as other people in the DIRECT program at the University of Washington. We would like to extend gratitude and a special thanks to Professor Mehmet Sarikaya (MSE, ChemE and Oral Health Sciences), Principal Investigator and Director of GEMSEC(<span style="color:blue">www.uwgemsec.com</span>): Genetically Engineered Materials Science and Engineering Center (An NSF Materials Genome Initiative research center) at University of Washington for permitting us use of AFM images taken in his lab by his graduate students David Starkebaum and Tyler Dean Jorgenson.
