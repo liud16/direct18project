@@ -53,7 +53,8 @@ Mac OS X and Windows are both able to download python 3 without any dependencies
 *For running tests:*
 In a shell script, open the directory "UnitTests", type in and run: nosetests -verbose Test.(the name of 'test.py' file desired to run) based on the use cases you want to access.
 
-#### All Documentation is in this README file, and Use cases as well as Software Workflow and License details can be found in their respective files. Our coding thoughts can be found in RoughWork.ipynb.
+#### All Documentation is in this README file, and Use cases as well as Software Workflow and License details can be found in their respective files. Our coding thoughts 
+can be found in RoughWork.ipynb and KnnRoughWork.ipynb in Example Folder.
 Acknowledgements:
 
 We appreciate feedback and suggestions on the structure and coding of this software from Professor David Beck and TA's Arushi Prakash, Nicholas Montoni and Moke Mao, as well as other people in the DIRECT program at the University of Washington. We would like to extend gratitude and a special thanks to Professor Mehmet Sarikaya (MSE, ChemE and Oral Health Sciences), Principal Investigator and Director of GEMSEC(<span style="color:blue">www.uwgemsec.com</span>): Genetically Engineered Materials Science and Engineering Center (An NSF Materials Genome Initiative research center) at University of Washington for permitting us use of AFM images taken in his lab by his graduate students David Starkebaum and Tyler Dean Jorgenson.
