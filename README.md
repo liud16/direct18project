@@ -59,7 +59,8 @@ Mac OS X and Windows are both able to download python 3 without any dependencies
 *For running tests:*
 In a shell script, open the directory "UnitTests", type in and run: nosetests -verbose Test.(the name of 'test.py' file desired to run) based on the use cases you want to access.
 
-#### All Documentation is in this README file, and Use cases as well as Software Workflow and License details can be found in their respective files. Our coding thoughts
+#### All Documentation is in this README file, and Use cases as well as Software Workflow and License details can be found in their respective files.
+Our coding thoughts
 can be found in RoughWork.ipynb and KnnRoughWork.ipynb in Example Folder.
 Acknowledgements:
 
